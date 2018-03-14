@@ -1,0 +1,66 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE digester-rules PUBLIC "-//Jakarta Apache //DTD digester-rules XML V1.0//EN" 
+	       "http://jakarta.apache.org/commons/digester/dtds/digester-rules.dtd">
+<digester-rules>
+	<pattern value="Mission">
+			<object-create-rule classname="com.grabber.config.Mission" />
+			<set-properties-rule>
+				<alias attr-name="missionName" prop-name="missionName" />
+				<alias attr-name="missionStatus" prop-name="missionStatus" />
+				<alias attr-name="missionPriority" prop-name="missionPriority" />
+			</set-properties-rule>
+			<pattern value="Thread">
+				<set-properties-rule>
+					<alias attr-name="crawlerThreadNum" prop-name="crawlerThreadNum" />
+					<alias attr-name="parserThreadNum" prop-name="parserThreadNum" />
+					<alias attr-name="handleThreadNum" prop-name="handleThreadNum" />
+					<alias attr-name="handleUnitMaxSize" prop-name="handleUnitMaxSize" />
+				</set-properties-rule>
+			</pattern>
+			<pattern value="ErrorMsg">
+				<set-properties-rule>
+					<alias attr-name="mailTo" prop-name="mailTo" />
+					<alias attr-name="maxMail" prop-name="maxMail" />
+				</set-properties-rule>
+			</pattern>
+			<pattern value="Entrance">
+				<set-properties-rule>
+					<alias attr-name="domain" prop-name="domain" />
+					<alias attr-name="entranceName" prop-name="entranceName" />
+				</set-properties-rule>
+			</pattern>
+			<pattern value="Crawler">
+				<set-properties-rule>
+					<alias attr-name="encode" prop-name="encode" />
+					<alias attr-name="needProxy" prop-name="needProxy" />
+					<alias attr-name="restLevel" prop-name="restLevel" />
+					<alias attr-name="httpMethod" prop-name="httpMethod" />
+					<alias attr-name="diskCache" prop-name="diskCache" />
+					<alias attr-name="diskCacheOutTimeSecond" prop-name="diskCacheOutTimeSecond" />
+					<alias attr-name="pageCheckSwitch" prop-name="pageCheckSwitch" />
+					<alias attr-name="pageCheckRegex" prop-name="pageCheckRegex" />
+				</set-properties-rule>
+			</pattern>
+			<pattern value="Parser">
+				<set-properties-rule>
+					<alias attr-name="crawlConditionName" prop-name="crawlConditionName" />
+					<alias attr-name="modelName" prop-name="modelName" />
+					<alias attr-name="strategyName" prop-name="strategyName" />
+				</set-properties-rule>
+			</pattern>
+			<!-- <pattern value="Exporter">
+				<object-create-rule classname="com.grabber.export.Exporter" />
+				<set-next-rule methodname="addExporter" />
+				<set-properties-rule>
+					<alias attr-name="exporterName" prop-name="exporterName" />
+					<alias attr-name="outputFormat" prop-name="outputFormat" />
+					<alias attr-name="dataBaseFileName" prop-name="dataBaseFileName" />
+					<alias attr-name="excelName" prop-name="excelName" />
+					<alias attr-name="daoClass" prop-name="daoClass" />
+					<alias attr-name="mapper" prop-name="mapper" />
+					<alias attr-name="methodName" prop-name="methodName" />
+					<alias attr-name="modelName" prop-name="modelName" />
+				</set-properties-rule>
+			</pattern> -->
+	</pattern>
+</digester-rules>

@@ -1,0 +1,12 @@
+﻿<Crawler-Condition>
+	<!-- 筛选条件 -->
+	<Filter-Conditions>
+	</Filter-Conditions>
+	<!-- 抓取条件 -->
+	<Begin-Crawl-Conditons>
+	</Begin-Crawl-Conditons>
+	<!-- 下一页的xpath,从第一个条件一直到最后一个条件，找到满足的为止 -->
+	<Next-Pages>
+		<!--  <Next-Page xpath="//div[@class='proxylistnav']/ul/li[3]/a/@href"></Next-Page>-->
+	</Next-Pages>
+</Crawler-Condition>

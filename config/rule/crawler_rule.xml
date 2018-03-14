@@ -1,0 +1,42 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE digester-rules PUBLIC "-//Jakarta Apache //DTD digester-rules XML V1.0//EN" 
+	       "http://jakarta.apache.org/commons/digester/dtds/digester-rules.dtd">
+<digester-rules>
+	<pattern value="Crawler-Condition">
+		<object-create-rule classname="com.grabber.config.CrawlerCondition"/>
+		<!-- 标签 -->
+		<bean-property-setter-rule pattern="Begin-Crawl-Conditons/Begin-Crawl-Conditions-Relation" propertyname="beginCrawlConditionRelation"/>
+		<!-- 筛选条件 -->
+		<pattern value="Filter-Conditions/Condition">
+			<object-create-rule classname="com.grabber.config.FilterCondition"/>
+			<set-next-rule methodname="addFilterCondition"/>
+			<set-properties-rule>
+				<alias attr-name="xpath" prop-name="xpath"/>
+				<alias attr-name="name" prop-name="name"/>
+				<alias attr-name="index" prop-name="index"/>
+				<alias attr-name="depth" prop-name="depth"/>
+			</set-properties-rule>
+		</pattern>
+		<!-- 开始抓取的条件 -->
+		<pattern value="Begin-Crawl-Conditons/Begin-Crawl-Conditon">
+			<object-create-rule classname="com.grabber.config.BeginCrawlCondition"/>
+			<set-next-rule methodname="addBeginCrawlCondition"/>
+			<set-properties-rule>
+				<alias attr-name="xpath" prop-name="xpath"/>
+				<alias attr-name="type" prop-name="type"/>
+				<alias attr-name="index" prop-name="index"/>
+				<alias attr-name="comparator" prop-name="comparator"/>
+				<alias attr-name="goal" prop-name="goal"/>
+				<alias attr-name="canBeNull" prop-name="canBeNull"/>
+			</set-properties-rule>
+		</pattern>
+		<!-- 翻页的条件 -->
+		<pattern value="Next-Pages/Next-Page">
+			<object-create-rule classname="com.grabber.config.NextPageCondition"/>
+			<set-next-rule methodname="addNextPageCondition"/>
+			<set-properties-rule>
+				<alias attr-name="xpath" prop-name="xpath"/>
+			</set-properties-rule>
+		</pattern>
+	</pattern>
+</digester-rules>

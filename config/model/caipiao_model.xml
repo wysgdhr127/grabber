@@ -1,0 +1,25 @@
+﻿<Model class="com.grabber.model.Caipiao">
+	<Xpath>//div[@class='dataBody  unAttention']/dl/dd</Xpath>
+	<!-- 空页面时的标志xpath，找不到上面的xpath时，如果能找到此xpath，则认为是正确的 -->
+	<Fault-Tolerant xpath="//div[@id='page500']" regex="" regexIndex="" regexValue=""></Fault-Tolerant>
+	<Attributes>
+		<Attribute attr="isstop" name="是否停赛" xpath="/@isstop" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="matchId" name="赛事ID" xpath="/@matchid" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="matchIssue" name="赛事Issue" xpath="/@matchcode | /@relation" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="matchSn" name="赛事编号" xpath="/@matchnumcn" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="leagueName" name="联赛名称" xpath="/@leagueName" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="issueSaleEndTimeString" name="发行停售时间" xpath="/@endtime" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="issueEndTimeString" name="发行停售时间" xpath="/@endtime" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="matchStartTimeString" name="比赛开始时间" xpath="/@starttime" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="homeTeamName" name="联赛名称" xpath="/@hostname" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="awayTeamName" name="联赛名称" xpath="/@guestname" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="homeTeamRank" name="主队排名" xpath="/span[@class='co4    ']/a/em[@class='hostTeam']/i" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="awayTeamRank" name="客队排名" xpath="/span[@class='co4    ']/a/em[@class='guestTeam']/i" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="handicap" name="让分" xpath="/@score" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="spf" name="胜平负" xpath="/span[@class='co6_1 btnBox towLine ']/div[@class='line1']/em[@gametype='spf']/@sp" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="rfspf" name="让分胜平负" xpath="/span[@class='co6_1 btnBox towLine ']/div[@class='line2']/em[@gametype='rfspf']/@sp" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="bf" name="比分" xpath="/div/table/tbody/tr/td[@gametype='bf']/@sp" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="bqc" name="半全场" xpath="/div/table/tbody/tr/td[@gametype='bqc']/@sp" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="zjq" name="总进球" xpath="/div/table/tbody/tr/td[@gametype='zjq']/@sp" regex="" regexIndex="1" warningLevel="3"></Attribute>
+	</Attributes>
+</Model>
