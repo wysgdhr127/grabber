@@ -1,8 +1,9 @@
-﻿<Mission missionName="caipiao"  missionStatus="1"  missionPriority="1">
-	<Thread crawlerThreadNum="1" parserThreadNum="1" handleThreadNum="1" handleUnitMaxSize="20"></Thread>
-	<ErrorMsg mailTo="" maxMail="10"></ErrorMsg>
-	<Entrance  domain="http://caipiao.163.com/" entranceName="caipiao_entrance"></Entrance>
-	<Crawler encode="utf-8" needProxy="false" restLevel="1" httpMethod="get" diskCache="true" diskCacheOutTimeSecond="0" pageCheckSwitch="false" pageCheckRegex=""></Crawler>
-	<Parser modelName="caipiao_model" crawlConditionName="caipiao_crawler" strategyName="com.grabber.strategy.CaipiaoStrategy"></Parser>
-	<Exporter exporterName="caipiao_exporter" outputFormat="console,excel"  excelName="caipiao.xls"></Exporter>
-</Mission>
+﻿<Missions>
+	<Mission missionName="caipiao" missionStatus="1" missionPriority="1">
+		<Thread crawlerThreadNum="1" parserThreadNum="1" handleThreadNum="1" handleUnitMaxSize="20"></Thread>
+		<ErrorMsg mailTo="" maxMail="10"></ErrorMsg>
+		<Entrance domain="http://caipiao.163.com/" entranceName="caipiao_entrance"></Entrance>
+		<Crawler encode="utf-8" needProxy="false" restLevel="1" httpMethod="get" diskCache="true" diskCacheOutTimeSecond="0" pageCheckSwitch="false" pageCheckRegex=""></Crawler>
+		<Parser modelName="caipiao_model" crawlConditionName="caipiao_crawler" strategyName="com.grabber.strategy.CaipiaoHandleStrategy"></Parser>
+	</Mission>
+</Missions>

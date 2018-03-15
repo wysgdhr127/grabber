@@ -1,4 +1,4 @@
-﻿<Model class="com.grabber.model.Caipiao">
+﻿<Model class="com.grabber.model.caipiao.Caipiao">
 	<Xpath>//div[@class='dataBody  unAttention']/dl/dd</Xpath>
 	<!-- 空页面时的标志xpath，找不到上面的xpath时，如果能找到此xpath，则认为是正确的 -->
 	<Fault-Tolerant xpath="//div[@id='page500']" regex="" regexIndex="" regexValue=""></Fault-Tolerant>
@@ -8,7 +8,6 @@
 		<Attribute attr="matchIssue" name="赛事Issue" xpath="/@matchcode | /@relation" regex="" regexIndex="1" warningLevel="3"></Attribute>
 		<Attribute attr="matchSn" name="赛事编号" xpath="/@matchnumcn" regex="" regexIndex="1" warningLevel="3"></Attribute>
 		<Attribute attr="leagueName" name="联赛名称" xpath="/@leagueName" regex="" regexIndex="1" warningLevel="3"></Attribute>
-		<Attribute attr="issueSaleEndTimeString" name="发行停售时间" xpath="/@endtime" regex="" regexIndex="1" warningLevel="3"></Attribute>
 		<Attribute attr="issueEndTimeString" name="发行停售时间" xpath="/@endtime" regex="" regexIndex="1" warningLevel="3"></Attribute>
 		<Attribute attr="matchStartTimeString" name="比赛开始时间" xpath="/@starttime" regex="" regexIndex="1" warningLevel="3"></Attribute>
 		<Attribute attr="homeTeamName" name="联赛名称" xpath="/@hostname" regex="" regexIndex="1" warningLevel="3"></Attribute>

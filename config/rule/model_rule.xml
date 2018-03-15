@@ -3,44 +3,45 @@
 	       "http://jakarta.apache.org/commons/digester/dtds/digester-rules.dtd">
 <digester-rules>
 	<pattern value="Model">
-		<object-create-rule classname="com.grabber.config.Model"/>
+		<object-create-rule classname="com.grabber.config.Model" />
 		<!-- class属性 -->
 		<set-properties-rule>
-			<alias attr-name="class" prop-name="modelClass"/>
+			<alias attr-name="class" prop-name="modelClass" />
 		</set-properties-rule>
 		<!-- Xpath标签 -->
-		<bean-property-setter-rule pattern="Xpath" propertyname="modelXpath"/>
+		<bean-property-setter-rule pattern="Xpath"
+			propertyname="modelXpath" />
 		<!-- 容错标签 -->
 		<pattern value="Fault-Tolerant">
-				<object-create-rule classname="com.grabber.config.FaultTolerant"/>
-				<set-next-rule methodname="addFaultTolerant"/>
-				<set-properties-rule>
-					<alias attr-name="xpath" prop-name="xpath"/>
-					<alias attr-name="regex" prop-name="regex"/>
-					<alias attr-name="regexIndex" prop-name="regexIndex"/>
-					<alias attr-name="regexValue" prop-name="regexValue"/>
-				</set-properties-rule>
+			<object-create-rule classname="com.grabber.config.FaultTolerant" />
+			<set-next-rule methodname="addFaultTolerant" />
+			<set-properties-rule>
+				<alias attr-name="xpath" prop-name="xpath" />
+				<alias attr-name="regex" prop-name="regex" />
+				<alias attr-name="regexIndex" prop-name="regexIndex" />
+				<alias attr-name="regexValue" prop-name="regexValue" />
+			</set-properties-rule>
 		</pattern>
 		<!-- 属性子类 -->
 		<pattern value="SubModel">
-				<set-properties-rule>
-					<alias attr-name="class" prop-name="subModelClass"/>
-					<alias attr-name="model-name" prop-name="subModelName"/>
-					<alias attr-name="set-method" prop-name="subModelMethodName"/>
-				</set-properties-rule>
+			<set-properties-rule>
+				<alias attr-name="class" prop-name="subModelClass" />
+				<alias attr-name="model-name" prop-name="subModelName" />
+				<alias attr-name="set-method" prop-name="subModelMethodName" />
+			</set-properties-rule>
 		</pattern>
 		<!-- 属性标签 -->
 		<pattern value="Attributes/Attribute">
-				<object-create-rule classname="com.grabber.config.Attribute"/>
-				<set-next-rule methodname="addAttribute"/>
-				<set-properties-rule>
-					<alias attr-name="attr" prop-name="attr"/>
-					<alias attr-name="name" prop-name="name"/>
-					<alias attr-name="xpath" prop-name="xpath"/>
-					<alias attr-name="regex" prop-name="regex"/>
-					<alias attr-name="regexIndex" prop-name="regexIndex"/>
-					<alias attr-name="warningLevel" prop-name="warningLevel"/>
-				</set-properties-rule>
+			<object-create-rule classname="com.grabber.config.Attribute" />
+			<set-next-rule methodname="addAttribute" />
+			<set-properties-rule>
+				<alias attr-name="attr" prop-name="attr" />
+				<alias attr-name="name" prop-name="name" />
+				<alias attr-name="xpath" prop-name="xpath" />
+				<alias attr-name="regex" prop-name="regex" />
+				<alias attr-name="regexIndex" prop-name="regexIndex" />
+				<alias attr-name="warningLevel" prop-name="warningLevel" />
+			</set-properties-rule>
 		</pattern>
 	</pattern>
 </digester-rules>

@@ -105,18 +105,10 @@ public class MissionFactory {
 	}
 
 	public Mission getMission(String missionFile) {
-
 		if (missionMap.containsKey(missionFile)) {
 			return missionMap.get(missionFile);
 		} else {
 			return null;
 		}
-
-	}
-
-	public static void main(String[] args) {
-
-		Mission c = MissionFactory.getInstance().getMission("proxy");
-		System.out.println(c);
 	}
 }

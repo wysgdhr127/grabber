@@ -6,7 +6,6 @@ import java.util.concurrent.Callable;
 
 import com.grabber.config.Mission;
 import com.grabber.constant.CommonConstant;
-import com.grabber.model.BaseModel;
 import com.grabber.model.HandleUnit;
 import com.grabber.thread.ThreadPool;
 import com.grabber.util.LoggerUtil;
@@ -43,9 +42,7 @@ public class HandleThread implements Callable<ArrayList<String>> {
 				if (handleUnit.getObjectList() == null) {
 					return null;
 				}
-				for (BaseModel t : handleUnit.getObjectList()) {
-					mission.getHandleStrategy().handleObject(t);
-				}
+				mission.getHandleStrategy().handleObjects(handleUnit.getObjectList(), mission.getMissionName());
 				LoggerUtil.handleLog.info("[handle running] sucess to deal with result[size = "
 						+ handleUnit.getObjectList().size() + "].");
 			}
@@ -54,12 +51,6 @@ public class HandleThread implements Callable<ArrayList<String>> {
 					+ "].", e);
 		} finally {
 			ThreadPool.getInstance().releaseTaskForMission(handleDtoName);
-			if (ThreadPool.getInstance().getRunningTaskForMission(handleDtoName) == 0) {
-				/*
-				 * if (mission.getExporter() != null) {
-				 * mission.getExporter().close(); }
-				 */
-			}
 		}
 		return null;
 	}

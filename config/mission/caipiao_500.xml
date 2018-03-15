@@ -1,0 +1,9 @@
+﻿<Missions>
+	<Mission missionName="caipiao_500" missionStatus="1" missionPriority="1">
+		<Thread crawlerThreadNum="1" parserThreadNum="1" handleThreadNum="1" handleUnitMaxSize="20"></Thread>
+		<ErrorMsg mailTo="" maxMail="10"></ErrorMsg>
+		<Entrance domain="http://trade.500.com/" entranceName="caipiao_entrance_500"></Entrance>
+		<Crawler encode="gbk" needProxy="false" restLevel="1" httpMethod="get" diskCache="true" diskCacheOutTimeSecond="0" pageCheckSwitch="false" pageCheckRegex=""></Crawler>
+		<Parser modelName="caipiao_model_500" crawlConditionName="caipiao_crawler" strategyName="com.grabber.strategy.CaipiaoHandleStrategy"></Parser>
+	</Mission>
+</Missions>

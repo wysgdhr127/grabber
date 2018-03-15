@@ -1,0 +1,22 @@
+﻿<Model class="com.grabber.model.caipiao.Caipiao">
+	<Xpath>//table[@class='bet_table']/tbody/tr</Xpath>
+	<!-- 空页面时的标志xpath，找不到上面的xpath时，如果能找到此xpath，则认为是正确的 -->
+	<Fault-Tolerant xpath="//div[@id='page500']" regex="" regexIndex="" regexValue=""></Fault-Tolerant>
+	<Attributes>
+		<Attribute attr="isstop" name="是否停赛" xpath="/@isend" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="matchId" name="赛事ID" xpath="/@fid" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="pdate" name="500万彩票网数据待处理pdate" xpath="/@pdate" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="pname" name="500万彩票网数据待处理pname" xpath="/@pname" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="leagueName" name="联赛名称" xpath="/@lg" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="issueEndTimeString" name="发行停售时间" xpath="/@pendtime" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="matchStartTimeString" name="比赛开始时间" xpath="/td[2]/span[1]/@title" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="homeTeamName" name="主队名称" xpath="/@homesxname" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="awayTeamName" name="客队名称" xpath="/@awaysxname" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="handicap" name="让分" xpath="/@rq" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="spf" name="胜平负" xpath="/td[6]/div/span/@data-sp" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="rfspf" name="让分胜平负" xpath="/td[7]/div/span/@data-sp" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="bf" name="比分" xpath="/td[8]/div/span/@data-sp" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="zjq" name="总进球" xpath="/td[9]/div/span/@data-sp" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="bqc" name="半全场" xpath="/td[10]/div/span/@data-sp" regex="" regexIndex="1" warningLevel="3"></Attribute>
+	</Attributes>
+</Model>

@@ -54,7 +54,6 @@ public class BaseDto {
 	 * @return
 	 */
 	private boolean init() {
-
 		// 分配线程池资源
 		boolean isReadyCrawler = ThreadPool.getInstance().applyForThread(
 				CommonConstant.getCrawlerName(mission.getMissionName()), mission.getCrawlerThreadNum());
@@ -85,7 +84,6 @@ public class BaseDto {
 	 * 开始任务
 	 */
 	public void start() {
-
 		LoggerUtil.debugLog.info("[main-mission] strat new mission [mission = " + mission.getMissionName()
 				+ "][CrawlerThreadNum = " + mission.getCrawlerThreadNum() + "][ParserThreadNum = "
 				+ mission.getParserThreadNum() + "][HandleThreadNum =" + mission.getHandleThreadNum() + "]");
