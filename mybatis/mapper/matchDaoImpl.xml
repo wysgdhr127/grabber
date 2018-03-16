@@ -14,12 +14,31 @@
 		<result property="awayTeamName" column="away_name" jdbcType="VARCHAR" />
 		<result property="homeTeamRank" column="home_rank" jdbcType="VARCHAR" />
 		<result property="awayTeamRank" column="away_rank" jdbcType="VARCHAR" />
-		<result property="matchStartTime" column="match_start_time" jdbcType="TIMESTAMP" />
-		<result property="issueEndTime" column="issue_end_time" jdbcType="TIMESTAMP" />
+		<result property="matchStartTime" column="match_start_time"
+			jdbcType="TIMESTAMP" />
+		<result property="issueEndTime" column="issue_end_time"
+			jdbcType="TIMESTAMP" />
 		<result property="dataFrom" column="data_from" jdbcType="VARCHAR" />
 		<result property="status" column="status" jdbcType="NUMERIC" />
 		<result property="createTime" column="create_time" jdbcType="TIMESTAMP" />
 		<result property="updateTime" column="update_time" jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<resultMap id="spMap" type="CaipiaoSp">
+		<id property="matchSpId" column="match_sp_id" jdbcType="NUMERIC" />
+		<result property="matchId" column="match_id" jdbcType="NUMERIC" />
+		<result property="matchIssue" column="match_issue" jdbcType="VARCHAR" />
+		<result property="matchSn" column="match_sn" jdbcType="VARCHAR" />
+		<result property="spJson" column="sp_json" jdbcType="VARCHAR" />
+		<result property="homeRecentRecord" column="home_recent_record"
+			jdbcType="VARCHAR" />
+		<result property="awayRecentRecord" column="away_recent_record"
+			jdbcType="NUMERIC" />
+		<result property="dataFrom" column="data_from" jdbcType="VARCHAR" />
+		<result property="isstop" column="isstop" jdbcType="VARCHAR" />
+		<result property="status" column="status" jdbcType="NUMERIC" />
+		<result property="updateTime" column="update_time" jdbcType="TIMESTAMP" />
+		<result property="createTime" column="create_time" jdbcType="TIMESTAMP" />
 	</resultMap>
 
 
@@ -42,18 +61,20 @@
 		</where>
 	</select>
 
-	<insert id="batchInsertMatch" parameterType="java.util.List"
+	<insert id="batchInsertMatch" parameterType="list"
 		useGeneratedKeys="true" keyProperty="id">
 		insert into tb_match_crawl (match_id, match_issue, match_sn, week,
-		league_name, home_name, away_name, home_rank, away_rank,
-		match_start_time, issue_end_time, data_from, status, create_time,
+		league_name, home_name, away_name,
+		match_start_time, issue_end_time,
+		data_from, status, create_time,
 		update_time) values
 		<foreach collection="list" separator="," index="index" item="match">
 			(#{match.matchId}, #{match.matchIssue}, #{match.matchSn},
 			#{match.week}, #{match.leagueName},
 			#{match.homeTeamName},
-			#{match.awayTeamName}, #{match.homeTeamRank}, #{match.awayTeamRank},
-			#{match.matchStartTime}, #{match.issueEndTime}, #{match.dataFrom},
+			#{match.awayTeamName},
+			#{match.matchStartTime}, #{match.issueEndTime},
+			#{match.dataFrom},
 			#{match.status},
 			sysdate(),sysdate())
 		</foreach>
@@ -107,6 +128,86 @@
 		</set>
 		<where>
 			id=#{id}
+		</where>
+	</update>
+
+
+	<select id="selectMatchSp" parameterType="CaipiaoSp" resultMap="spMap">
+		select
+		* from
+		tb_match_sp_crawl t
+		<where>
+			<trim suffixOverrides="and">
+				<if test="matchId != null">
+					match_id=#{matchId} and
+				</if>
+				<if test="matchIssue != null">
+					match_issue=#{matchIssue} and
+				</if>
+				<if test="matchSn != null">
+					match_sn=#{matchSn} and
+				</if>
+				<if test="dataFrom != null">
+					data_from=#{dataFrom} and
+				</if>
+			</trim>
+		</where>
+	</select>
+
+	<insert id="batchInsertMatchSp" parameterType="java.util.List"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into tb_match_sp_crawl (match_id, match_issue,
+		match_sn,
+		sp_json, home_recent_record, away_recent_record, isstop, data_from,
+		status,
+		create_time,
+		update_time) values
+		<foreach collection="list" separator="," index="index" item="match">
+			(#{match.matchId}, #{match.matchIssue},
+			#{match.matchSn},
+			#{match.spJson}, #{match.homeRecentRecord},
+			#{match.awayRecentRecord},#{match.isstop},#{match.dataFrom},
+			#{match.status},
+			sysdate(),sysdate())
+		</foreach>
+	</insert>
+
+	<update id="updateMatchSp" parameterType="CaipiaoSp">
+		update tb_match_sp_crawl
+		<set>
+			<trim suffixOverrides=",">
+				<if test="matchId != null">
+					match_id=#{matchId},
+				</if>
+				<if test="matchIssue != null">
+					match_issue=#{matchIssue},
+				</if>
+				<if test="matchSn != null">
+					match_sn=#{matchSn},
+				</if>
+				<if test="spJson != null">
+					sp_json=#{spJson},
+				</if>
+				<if test="homeRecentRecord != null">
+					home_recent_record=#{homeRecentRecord},
+				</if>
+				<if test="awayRecentRecord != null">
+					away_recent_record=#{awayRecentRecord},
+				</if>
+				<if test="isstop != null">
+					isstop=#{isstop},
+				</if>
+				<if test="dataFrom != null">
+					data_from=#{dataFrom},
+				</if>
+				<if test="status != null">
+					status=#{status},
+				</if>
+				update_time=sysdate(),
+			</trim>
+		</set>
+		<where>
+			match_sp_id=#{matchSpId}
 		</where>
 	</update>
 </mapper>

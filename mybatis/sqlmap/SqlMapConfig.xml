@@ -10,6 +10,7 @@
 	<!-- 在此位置添加类的别名 -->
 	<typeAliases>
 		<typeAlias type="com.grabber.model.caipiao.Caipiao" alias="Caipiao" />
+		<typeAlias type="com.grabber.model.caipiao.CaipiaoSp" alias="CaipiaoSp" />
 	</typeAliases>
 
 	<environments default="development">

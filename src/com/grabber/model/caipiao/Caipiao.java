@@ -21,7 +21,7 @@ public class Caipiao extends BaseModel {
 
 	private final static String[] BQC_STRINGS = { "33", "31", "30", "13", "11", "10", "03", "01", "00" };
 
-	private final static String[] WEEK_CHN = { "日", "一", "二", "三", "四", "五", "六", "日" };
+	public final static String WEEK_CHN = "空一二三四五六日";
 
 	private Long id;
 	private String matchIssue;// 格式：20170320001
@@ -253,13 +253,7 @@ public class Caipiao extends BaseModel {
 			this.setZjq(caipiao.getZjq());
 		}
 		if (StringUtils.isBlank(week)) {
-			int i = 1;
-			for (String w : WEEK_CHN) {
-				if (matchSn.contains(w)) {
-					week = i + "";
-				}
-				i++;
-			}
+			week = WEEK_CHN.indexOf(matchSn.charAt(1)) + "";
 		}
 		getBetSp();
 	}
@@ -322,7 +316,7 @@ public class Caipiao extends BaseModel {
 			}
 
 			if (StringUtils.isBlank(matchSn)) {
-				matchSn = "周" + WEEK_CHN[pname.charAt(0) - '0'] + pname.substring(1);
+				matchSn = "周" + WEEK_CHN.charAt(pname.charAt(0) - '0') + pname.substring(1);
 				week = pname.charAt(0) - '0' + "";
 			}
 
@@ -336,6 +330,11 @@ public class Caipiao extends BaseModel {
 				bqc = handleData(bqc, BQC_STRINGS);
 			}
 
+			getBetSp();
+		} else if (dataFrom.equals(DataFrom.SPORTTERY_FROM)) {
+			if (StringUtils.isBlank(week) && StringUtils.isNotBlank(matchSn)) {
+				week = WEEK_CHN.indexOf(matchSn.charAt(1)) + "";
+			}
 			getBetSp();
 		}
 		this.dataFrom = dataFrom;

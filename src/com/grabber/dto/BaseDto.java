@@ -13,6 +13,7 @@ import com.grabber.config.factory.MissionFactory;
 import com.grabber.constant.CommonConstant;
 import com.grabber.model.HandleUnit;
 import com.grabber.model.ParseUnit;
+import com.grabber.strategy.CaipiaoHandleStrategy;
 import com.grabber.thread.ThreadPool;
 import com.grabber.thread.task.CrawlerThread;
 import com.grabber.thread.task.HandleThread;
@@ -282,6 +283,16 @@ public class BaseDto {
 	}
 
 	public static void main(String[] args) {
+		//网易爬虫
 		new BaseDto("caipiao").start();
+		//500万彩票网爬虫
+		new BaseDto("caipiao_500").start();
+		//中国竞彩网爬虫
+		CaipiaoHandleStrategy strategy = new CaipiaoHandleStrategy();
+		try {
+			strategy.handleMessage(strategy.sendMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

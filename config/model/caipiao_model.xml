@@ -20,5 +20,16 @@
 		<Attribute attr="bf" name="比分" xpath="/div/table/tbody/tr/td[@gametype='bf']/@sp" regex="" regexIndex="1" warningLevel="3"></Attribute>
 		<Attribute attr="bqc" name="半全场" xpath="/div/table/tbody/tr/td[@gametype='bqc']/@sp" regex="" regexIndex="1" warningLevel="3"></Attribute>
 		<Attribute attr="zjq" name="总进球" xpath="/div/table/tbody/tr/td[@gametype='zjq']/@sp" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		
+		<!-- 详细对阵信息爬取  -->
+		<Attribute attr="recenths" name="近期赛事主队胜场数" xpath="/@isstop" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="recenthp" name="近期赛事主队平场数" xpath="/@isstop" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="recenthf" name="近期赛事主队负场数" xpath="/@isstop" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="recentas" name="近期赛事客队胜场数" xpath="/@isstop" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="recentap" name="近期赛事客队平场数" xpath="/@isstop" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="recentaf" name="近期赛事客队负场数" xpath="/@isstop" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="historys	" name="历史交锋胜场数" xpath="/@isstop" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="historyp" name="历史交锋平场数" xpath="/@isstop" regex="" regexIndex="1" warningLevel="3"></Attribute>
+		<Attribute attr="historyf" name="历史交锋负场数" xpath="/@isstop" regex="" regexIndex="1" warningLevel="3"></Attribute>
 	</Attributes>
 </Model>
